@@ -136,7 +136,7 @@ class Process_WIKI_IMDB():
     # some filtering on df
     processed_dataset_df = processed_dataset_df.dropna()
     processed_dataset_df = processed_dataset_df[(processed_dataset_df.age >= 0) & (processed_dataset_df.age <= 100)]
-    processed_dataset_df.to_csv('/content/Dataset.csv',index=False)
+    # processed_dataset_df.to_csv('/content/Dataset.csv',index=False)
     self.Dataset_Df = processed_dataset_df
     return processed_dataset_df # returning now (just in case need to return), maybe later remove...
 
