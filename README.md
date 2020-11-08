@@ -6,14 +6,15 @@ Very Easy Unofficial Implementation of C3AE(Age estimation) model in Google Cola
 ## Project Strcuture
 ```
 C3AE-keras/
-    |->datasets (datasets should be placed here, e.g wiki_crop)
-    |->detector (contains face landmarks detector model. (used with dlib))
-    |->model_saved (will save weights here (best trained model weights)
-    |->net_training (contain scripts to define network and utils)
-    |->preprocessing_scripts (contain scripts for dataset preprocessing. initially added WIKI, IMDB & morph preprocessing modules. Which will load datasets, detect faces+landmarks, encode images & save as feather.)
+    |->datasets                (datasets should be placed here, e.g wiki_crop)
+    |->detector                (contains face landmarks detector model. (used with dlib))
+    |->model_saved             (will save weights here (best trained model weights)
+    |->net_training            (contain scripts to define network and utils)
+    |->preprocessing_scripts   (contain scripts for dataset preprocessing. initially added WIKI, IMDB & morph preprocessing modules. Which will load datasets, detect faces+landmarks, encode images & save as feather.)
 ```
 
 ## Code tested with
+0. Google Colab
 1. tensorflow : 2.3.0
 2. keras : 2.4.3
 3. cv2 : 4.1.2
@@ -23,8 +24,8 @@ C3AE-keras/
 7. pathlib
 
 
-## Steps to Download Code & dataset, Load+Preprocess dataset, Train, Test
-I have divided each part into sections. Sections are as follows.
+## Steps
+I have divided each part into sections. As follows.
 1. Clone repo :  to get the code
 2. Download Datasets :  This will Download datasets and extract into "C3ae_keras/datasets/".  (Initially contains links of wiki and imdb only, because morph is not publically available)
 3. Preprocess datasets : Go to "preprocess_WIKI-IMDB.py" script first to change "dataset_name" varible to "wiki" or "imdb" for preprocessing coresponding dataset.
