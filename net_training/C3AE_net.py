@@ -1,4 +1,4 @@
-from m_net_training import training_utils
+from net_training import training_utils
 import tensorflow as tf
 from keras.layers import Conv2D,Lambda,Input,BatchNormalization,Activation,AveragePooling2D,GlobalAveragePooling2D,Flatten,ReLU,Dense,multiply,Reshape,Concatenate
 from keras.activations import sigmoid

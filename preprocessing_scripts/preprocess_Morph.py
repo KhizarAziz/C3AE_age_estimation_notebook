@@ -113,8 +113,8 @@ def loadData_preprocessData_and_makeDataFrame():
     
     # adding everything to list
     properties_list.append([image_path,series.age,series.gender,image_buffer,face_rect_box_serialized,trible_boxes_serialized,face_yaw,face_pitch,face_roll,face_landmarks_serialized])
-    if index%200 == 0:
-      print(index,'image added')
+    if index%500 == 0:
+      print(index,'images preprocessed')
   processed_dataset_df = pd.DataFrame(properties_list,columns=['image_path','age','gender','image','org_box','trible_box','yaw','pitch','roll','landmarks'])
   # some filtering on df
   processed_dataset_df = processed_dataset_df.dropna()
@@ -156,13 +156,13 @@ def rectify_data():
 
 #initiate face detector and predictor
 detector = dlib.get_frontal_face_detector()
-predictor = dlib.shape_predictor("/content/C3AE/detector/shape_predictor_68_face_landmarks.dat")
+predictor = dlib.shape_predictor("/content/C3AE_keras/detector/shape_predictor_68_face_landmarks.dat")
 
 # creating dummy DF, later will process all images to make it real df
 Dataset_DF = pd.DataFrame(columns=["age", "gender", "image", "org_box", "trible_box", "landmarks", "roll", "yaw", "pitch"])
 
 # define all parameters here
-dataset_base_path = Path('/content/C3AE/datasets/aligned/')
+dataset_base_path = Path('/content/C3AE_keras/datasets/aligned/')
 dataset_name = 'morph' # different dataset name means different sequence for loading etc
 # image transform params (if require)
 extra_padding = 0.55

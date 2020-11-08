@@ -12,10 +12,6 @@ from pose import get_rotation_angle
 # process it to detect faces, detect landmarks, align, & make 3 sub boxes which will be used in next step to feed into network
 # save dataset as pandas,feather & imencode for size efficiency
 
-Dataset_DF = pd.DataFrame(columns=["age", "gender", "image", "org_box", "trible_box", "landmarks", "roll", "yaw", "pitch"])
-#initiate face detector and predictor
-detector = dlib.get_frontal_face_detector()
-predictor = dlib.shape_predictor("/content/C3AE/detector/shape_predictor_68_face_landmarks.dat")
 
 def gen_boundbox(box, landmark):
     # getting 3 boxes for face, as required in paper... i.e feed 3 different sized images to network (R,G,B) 
@@ -134,8 +130,8 @@ class Process_WIKI_IMDB():
       
       # adding everything to list
       properties_list.append([image_path,series.age,series.gender,image_buffer,face_rect_box_serialized,trible_boxes_serialized,face_yaw,face_pitch,face_roll,face_landmarks_serialized])
-      if index%200 == 0:
-        print(index,'image added')
+      if index%500 == 0:
+        print(index,'images preprocessed')
     processed_dataset_df = pd.DataFrame(properties_list,columns=['image_path','age','gender','image','org_box','trible_box','yaw','pitch','roll','landmarks'])
     # some filtering on df
     processed_dataset_df = processed_dataset_df.dropna()
@@ -172,15 +168,19 @@ class Process_WIKI_IMDB():
       self.Dataset_Df.age = self.Dataset_Df.age 
       print(self.Dataset_Df.groupby(["age", "gender"]).agg(["count"]))
 
+Dataset_DF = pd.DataFrame(columns=["age", "gender", "image", "org_box", "trible_box", "landmarks", "roll", "yaw", "pitch"])
+#initiate face detector and predictor
+detector = dlib.get_frontal_face_detector()
+predictor = dlib.shape_predictor("/content/C3AE_keras/detector/shape_predictor_68_face_landmarks.dat")
+
+# define all parameters here
+dataset_directory_path = '/content/C3AE_keras/datasets/wiki_crop'
+dataset_name = 'wiki' # different dataset name means different sequence for loading etc
+# image transform params (if require)
+extra_padding = 0.55
 
 
 if __name__ == "__main__":
-  # define all parameters here
-  dataset_directory_path = '/content/C3AE/datasets/wiki_crop'
-  dataset_name = 'wiki' # different dataset name means different sequence for loading etc
-
-  # image transform params (if require)
-  extra_padding = 0.55
 
   if dataset_name == 'wiki' or dataset_name == 'imdb': # because structure is same
     dataset_class_ref_object = Process_WIKI_IMDB(dataset_directory_path,dataset_name,extra_padding)
