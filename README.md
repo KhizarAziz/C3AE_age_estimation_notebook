@@ -32,6 +32,8 @@ C3AE-keras/
 
 
 ## Steps
+Open "C3AE_Notebook_Implementation.ipynb" as a notebook, and start executing each cell step by step. as follows,
+
 I have divided each part into sections. As follows.
 1. Clone repo :  to get the code
 2. Download Datasets :  This will Download datasets and extract into "C3ae_keras/datasets/".  (Initially contains links of wiki and imdb only, because morph is not publically available)
