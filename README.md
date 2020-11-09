@@ -39,7 +39,7 @@ I have divided each part into sections. As follows.
 2. Download Datasets :  This will Download datasets and extract into "C3ae_keras/datasets/".  (Initially contains links of wiki and imdb only, because morph is not publically available)
 3. Preprocess datasets : Go to "preprocess_WIKI-IMDB.py" script first to change "dataset_name" varible to "wiki" or "imdb" for preprocessing coresponding dataset.
 4. Train: 1. import libs 2. load pre processed dataset 3. train(0.8)/test(0.2)_split 4. Make Data Generator(because dataset is too large) 5. build net, train, and display history
-5. Inference : Place an image of face in "/content/" dir run these sections.
+5. Inference : Place an image in "/content/test.jpg" and run all cells in this section.
 
 
 # Refrence and Credits
