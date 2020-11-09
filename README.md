@@ -1,5 +1,6 @@
-# Implemented in Notebook (Google Colab)
-Very Easy Unofficial Implementation of C3AE(Age estimation) model in Google Colab using keras. I have kept the Code very simple & wrote too many comments, almost on every line.... for better understanding of beginners like me:) & whoever wants to build something on top it....
+# C3AE: Implemented in Notebook (Google Colab)
+C3AE Implementation in Notebook, 
+A Very Easy Unofficial Implementation of C3AE(Age estimation) model in Google Colab using keras. I have kept the Code very simple & wrote too many comments, almost on every line.... for better understanding of beginners like me:) & whoever wants to build something on top it....
 
 
 ## Results
